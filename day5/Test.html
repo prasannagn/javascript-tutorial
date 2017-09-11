@@ -1,0 +1,31 @@
+
+<html>
+<body>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="./Test.js"></script>
+
+
+<form action="http://websites.blr-nagabhp1-m.ds.ad.adp.com/wsm/bulkOfferUpload.do" method="get" enctype="multipart/form-data" id="uploadForm" class="upload-form" name="uploadForm">
+    <input name="fileData" class="file-input" type="file" id="fileData" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel" />
+    <input type="button" class=" upload-button disabled wsm-button button-global" value="Upload" onclick="uploadJqueryForm()"/>
+</form>
+</body>
+</html>
+
+<script>
+    console.log('hi');
+
+    var uploadJqueryForm = function () {
+        console.log('clicked',$("#uploadForm"));
+        $("#uploadForm").ajaxForm({
+            success: function (data) {
+                console.log(data);
+            },
+            error: function () {
+                console.log('failed');
+            },
+            dataType: "text"
+        }).submit();
+    };
+</script>
+
